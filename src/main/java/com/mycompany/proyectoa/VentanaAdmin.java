@@ -28,11 +28,8 @@ public class VentanaAdmin extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuLibro = new javax.swing.JMenu();
         jMenuLibroCrear = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
         jMenuLibroConsultar = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItemExportarLibrosJSON = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -41,9 +38,6 @@ public class VentanaAdmin extends javax.swing.JFrame {
         jMenuUsuarioCrear = new javax.swing.JMenuItem();
         jMenuUsuarioConsultar = new javax.swing.JMenuItem();
         jMenuItemCargarUsuarios = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItemProvedores = new javax.swing.JMenuItem();
         jMenuItemConsultarProveedores = new javax.swing.JMenuItem();
@@ -79,14 +73,6 @@ public class VentanaAdmin extends javax.swing.JFrame {
         });
         jMenuLibro.add(jMenuLibroCrear);
 
-        jMenuItem9.setText("Exportar XML");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        jMenuLibro.add(jMenuItem9);
-
         jMenuLibroConsultar.setText("Consultar");
         jMenuLibroConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,22 +88,6 @@ public class VentanaAdmin extends javax.swing.JFrame {
             }
         });
         jMenuLibro.add(jMenuItem4);
-
-        jMenuItem8.setText("Exportar CVS");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
-            }
-        });
-        jMenuLibro.add(jMenuItem8);
-
-        jMenuItemExportarLibrosJSON.setText("Exportar JSON");
-        jMenuItemExportarLibrosJSON.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemExportarLibrosJSONActionPerformed(evt);
-            }
-        });
-        jMenuLibro.add(jMenuItemExportarLibrosJSON);
 
         jMenuBar1.add(jMenuLibro);
 
@@ -175,30 +145,6 @@ public class VentanaAdmin extends javax.swing.JFrame {
         });
         jMenuVentanaAdmin.add(jMenuItemCargarUsuarios);
 
-        jMenuItem5.setText("Exportar CSV");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenuVentanaAdmin.add(jMenuItem5);
-
-        jMenuItem6.setText("Exportar XML");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenuVentanaAdmin.add(jMenuItem6);
-
-        jMenuItem7.setText("Exportar JSON");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
-            }
-        });
-        jMenuVentanaAdmin.add(jMenuItem7);
-
         jMenuBar1.add(jMenuVentanaAdmin);
 
         jMenu3.setText("Proveedore(s)");
@@ -242,20 +188,10 @@ public class VentanaAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuUsuarioConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuUsuarioConsultarActionPerformed
-        ConsultaUsuarios c = new ConsultaUsuarios();
-        c.setVisible(true);
-        
-    }//GEN-LAST:event_jMenuUsuarioConsultarActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     this.dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jMenuUsuarioCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuUsuarioCrearActionPerformed
-        UsuarioNuevo n = new UsuarioNuevo();
-        n.setVisible(true);    }//GEN-LAST:event_jMenuUsuarioCrearActionPerformed
 
     private void jMenuLibroCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuLibroCrearActionPerformed
         LibroNuevo n = new LibroNuevo();
@@ -298,47 +234,26 @@ public class VentanaAdmin extends javax.swing.JFrame {
         cp.setVisible(true);
     }//GEN-LAST:event_jMenuItemCargarActionPerformed
 
-    private void jMenuItemCargarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCargarUsuariosActionPerformed
-        CargarUsuarios cu = new CargarUsuarios();
-        cu.setVisible(true);
-    }//GEN-LAST:event_jMenuItemCargarUsuariosActionPerformed
-
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         CargaLibro cl = new CargaLibro();
         cl.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        ExportarUsuariosCSV eu = new ExportarUsuariosCSV();
-        eu.setVisible(true);
-   
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    private void jMenuItemCargarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCargarUsuariosActionPerformed
+        CargarUsuarios cu = new CargarUsuarios();
+        cu.setVisible(true);
+    }//GEN-LAST:event_jMenuItemCargarUsuariosActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        ExportarUsuariosXML exu = new ExportarUsuariosXML();
-        exu.setVisible(true);        
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    private void jMenuUsuarioConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuUsuarioConsultarActionPerformed
+        ConsultaUsuarios c = new ConsultaUsuarios();
+        c.setVisible(true);
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        ExportarUsuariosJSON euj = new ExportarUsuariosJSON();
-        euj.setVisible(true);
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+    }//GEN-LAST:event_jMenuUsuarioConsultarActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-       ExportarLibrosCSV elc = new ExportarLibrosCSV();
-       elc.setVisible(true);
-       
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
-
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-       ExportarLibrosXML elx = new ExportarLibrosXML();
-       elx.setVisible(true);
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
-
-    private void jMenuItemExportarLibrosJSONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemExportarLibrosJSONActionPerformed
-        ExportarLibrosJSON elj = new ExportarLibrosJSON();
-        elj.setVisible(true);
-    }//GEN-LAST:event_jMenuItemExportarLibrosJSONActionPerformed
+    private void jMenuUsuarioCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuUsuarioCrearActionPerformed
+        UsuarioNuevo n = new UsuarioNuevo();
+        n.setVisible(true);
+    }//GEN-LAST:event_jMenuUsuarioCrearActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -350,15 +265,9 @@ public class VentanaAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuItem jMenuItemCargar;
     private javax.swing.JMenuItem jMenuItemCargarUsuarios;
     private javax.swing.JMenuItem jMenuItemConsultarProveedores;
-    private javax.swing.JMenuItem jMenuItemExportarLibrosJSON;
     private javax.swing.JMenuItem jMenuItemProvedores;
     private javax.swing.JMenu jMenuLibro;
     private javax.swing.JMenuItem jMenuLibroConsultar;

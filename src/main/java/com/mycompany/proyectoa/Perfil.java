@@ -72,6 +72,7 @@ public class Perfil extends javax.swing.JFrame {
         jButtonSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Mi Perfil");
 
         jLabel1.setText("Nombre:");
 
