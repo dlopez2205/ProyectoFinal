@@ -4,6 +4,10 @@
  */
 package com.mycompany.proyectoa;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -42,7 +46,8 @@ public class ConsultaCupon extends javax.swing.JFrame {
             tabla.setValueAt(c.codigo_descuento, i, 0);
             tabla.setValueAt(c.descuento, i, 1);
             tabla.setValueAt(c.tipo_descuento, i, 2);
-            tabla.setValueAt(c.fecha_de_vencimiento, i, 3);
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+            tabla.setValueAt(formato.format(c.fecha_de_vencimiento), i, 3);
             
         }                
     }
@@ -143,8 +148,8 @@ public class ConsultaCupon extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -237,7 +242,13 @@ public class ConsultaCupon extends javax.swing.JFrame {
 
             if( jTextFieldFechaVencimiento.getText().isEmpty()== false){
 
-                cupon.fecha_de_vencimiento = jTextFieldFechaVencimiento.getText();
+                String fecha = jTextFieldFechaVencimiento.getText();
+                SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    cupon.fecha_de_vencimiento = formato.parse(fecha);
+                } catch (ParseException ex) {
+                    Logger.getLogger(ConsultaCupon.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
             }else {
                 JOptionPane.showMessageDialog(this, "Fecha vacio!!!");
@@ -293,7 +304,7 @@ public class ConsultaCupon extends javax.swing.JFrame {
 
                 jComboBoxTipoDescuento.setSelectedIndex(1);
             }
-            jTextFieldFechaVencimiento.setText( cupon.fecha_de_vencimiento);
+            jTextFieldFechaVencimiento.setText( cupon.fecha_de_vencimiento.toString());
 
         }
     }//GEN-LAST:event_jButtonModificarActionPerformed

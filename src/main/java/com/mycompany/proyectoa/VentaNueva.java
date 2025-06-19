@@ -4,8 +4,12 @@
  */
 package com.mycompany.proyectoa;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -128,12 +132,21 @@ public class VentaNueva extends javax.swing.JFrame
 
                 if( c.codigo_descuento.equalsIgnoreCase(CodigoCupon) )
                 {
+                    String fecha = c.fecha_de_vencimiento.toString();
+                    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+                    try {
+                        c.fecha_de_vencimiento = formato.parse(fecha);
+                    } catch (ParseException ex) {
+                        System.out.println("Error en la fecha de vencimiento");
+                        //Logger.getLogger(VentaNueva.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                                        
                     if( c.tipo_descuento.equalsIgnoreCase("Porcentaje") )
                     {
                         Descuento = v.total * ( c.descuento / 100.0 );
                         v.total = v.total - Descuento;                        
                         
-                    }else{
+                    }else{  // Aqui es descuento * valor
                         
                         Descuento = c.descuento.doubleValue();
                         v.total = v.total - Descuento;
@@ -264,12 +277,6 @@ public class VentaNueva extends javax.swing.JFrame
 
         jLabel1.setText("Nit:");
 
-        jTextFieldNit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNitActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("Nombre:");
 
         jLabel3.setText("Direccion:");
@@ -279,11 +286,6 @@ public class VentaNueva extends javax.swing.JFrame
         jLabel5.setText("Cantidad:");
 
         jComboBoxLibros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxLibros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxLibrosActionPerformed(evt);
-            }
-        });
 
         jButtonAgregarLibro.setText("Agregar libro");
         jButtonAgregarLibro.addActionListener(new java.awt.event.ActionListener() {
@@ -320,11 +322,6 @@ public class VentaNueva extends javax.swing.JFrame
         });
 
         jComboBoxCuponesDescuento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxCuponesDescuento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxCuponesDescuentoActionPerformed(evt);
-            }
-        });
 
         jLabel6.setText("Cupones:");
 
@@ -332,16 +329,6 @@ public class VentaNueva extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxCuponesDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonVenta)
-                .addGap(27, 27, 27)
-                .addComponent(jButtonSalir)
-                .addGap(15, 15, 15))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -364,16 +351,28 @@ public class VentaNueva extends javax.swing.JFrame
                                     .addComponent(jTextFieldNit, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(87, 87, 87)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBoxLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44)
                         .addComponent(jButtonAgregarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxCuponesDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonVenta)
+                        .addGap(27, 27, 27)
+                        .addComponent(jButtonSalir)))
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -411,10 +410,6 @@ public class VentaNueva extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldNitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNitActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNitActionPerformed
-
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         this.dispose();       
     }//GEN-LAST:event_jButtonSalirActionPerformed
@@ -426,14 +421,6 @@ public class VentaNueva extends javax.swing.JFrame
     private void jButtonVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVentaActionPerformed
         AgregaVenta();
     }//GEN-LAST:event_jButtonVentaActionPerformed
-
-    private void jComboBoxLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLibrosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxLibrosActionPerformed
-
-    private void jComboBoxCuponesDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCuponesDescuentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxCuponesDescuentoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgregarLibro;

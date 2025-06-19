@@ -68,8 +68,8 @@ public class ConsultarVentas extends javax.swing.JFrame {
             tabla.setValueAt(v.totalsiniva.toString().formatted("%.-2f"), i, 4);
             tabla.setValueAt(v.descuento, i, 5);
             tabla.setValueAt(v.empleado, i, 6);
-            tabla.setValueAt(v.fecha.getTime().toString(), i, 7);
             String fechaFormateada = formato.format(v.fecha.getTime());
+            tabla.setValueAt(fechaFormateada, i, 7);
             
             this.contenidoExportar += v.nombrecliente + "," 
                     + v.nit + "," 
@@ -136,7 +136,7 @@ public class ConsultarVentas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 861, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonExportar)

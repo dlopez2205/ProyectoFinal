@@ -9,6 +9,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -44,7 +47,8 @@ public class CargarCupon extends javax.swing.JFrame {
             tabla.setValueAt(c.codigo_descuento, i, 0);
             tabla.setValueAt(c.descuento, i, 1);
             tabla.setValueAt(c.tipo_descuento, i, 2);
-            tabla.setValueAt(c.fecha_de_vencimiento, i, 3); 
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+            tabla.setValueAt(formato.format(c.fecha_de_vencimiento), i, 3); 
         }                
     }    
     
@@ -62,7 +66,10 @@ public class CargarCupon extends javax.swing.JFrame {
                 c.codigo_descuento = cupon[0].trim();
                 c.descuento = Integer.parseInt(cupon[1].trim());
                 c.tipo_descuento = cupon[2].trim();
-                c.fecha_de_vencimiento = (cupon[3].trim());
+                String fecha = (cupon[3].trim());
+                SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+                c.fecha_de_vencimiento = formato.parse(fecha);
+                                
                 ProyectoFinal.cupones.add(c);
                 linea = bloque.readLine();
                 pintarTabla();
@@ -71,6 +78,8 @@ public class CargarCupon extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CargarCupon.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) { 
+            Logger.getLogger(CargarCupon.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
             Logger.getLogger(CargarCupon.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -123,29 +132,26 @@ public class CargarCupon extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(148, 148, 148)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonCargar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(20, 20, 20))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonCargar)
-                        .addGap(33, 33, 33))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(16, 16, 16))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButtonCargar))
+                .addGap(16, 16, 16))
         );
 
         pack();
@@ -162,7 +168,6 @@ public class CargarCupon extends javax.swing.JFrame {
            nombreArchivo = this.fileChooser.getSelectedFile();
            System.out.print( nombreArchivo.getAbsoluteFile());
            leer(nombreArchivo.getAbsoluteFile().toString());
-           //ProyectoA.cupones.add(c);
 
         }
         

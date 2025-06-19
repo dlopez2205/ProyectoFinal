@@ -4,6 +4,10 @@
  */
 package com.mycompany.proyectoa;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -68,11 +72,6 @@ public class CuponNuevo extends javax.swing.JFrame {
         });
 
         jComboBoxTipoDescuento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxTipoDescuento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxTipoDescuentoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,20 +167,19 @@ public class CuponNuevo extends javax.swing.JFrame {
             
         }else {
             
-            c.fecha_de_vencimiento = jTextFieldFechaVencimiento.getText();
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                c.fecha_de_vencimiento = formato.parse(jTextFieldFechaVencimiento.getText());       
+            } catch (ParseException ex) {
+                Logger.getLogger(CuponNuevo.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
         }
-        
-        
         
         ProyectoFinal.cupones.add(c);
         JOptionPane.showMessageDialog(this, "Cupon creado exitosamente");
         
     }//GEN-LAST:event_jButtonCrearActionPerformed
-
-    private void jComboBoxTipoDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoDescuentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxTipoDescuentoActionPerformed
 
    
 
