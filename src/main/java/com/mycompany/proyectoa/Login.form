@@ -74,9 +74,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextfieldUsuario">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextfieldUsuarioActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>

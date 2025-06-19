@@ -32,8 +32,6 @@ public class ConsultaUsuarios extends javax.swing.JFrame {
         jComboBoxEstado.addItem("Activo");
         jComboBoxEstado.addItem("Inactivo");
         jComboBoxEstado.addItem("Eliminado");
-
-
     }
     
     private void pintarTabla() {
@@ -50,8 +48,6 @@ public class ConsultaUsuarios extends javax.swing.JFrame {
             tabla.setValueAt(u.password, i, 2);
             tabla.setValueAt(u.rol, i, 3);
             tabla.setValueAt(u.estado, i, 4);
-            
-            
         }                
     }
     
@@ -268,24 +264,7 @@ public class ConsultaUsuarios extends javax.swing.JFrame {
 
         jLabel4.setText("Rol:");
 
-        jTextfieldNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextfieldNombreActionPerformed(evt);
-            }
-        });
-
         jComboBoxRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxRol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxRolActionPerformed(evt);
-            }
-        });
-
-        jTextfieldPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextfieldPasswordActionPerformed(evt);
-            }
-        });
 
         jButtonGuardar.setText("Guardar");
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -297,11 +276,6 @@ public class ConsultaUsuarios extends javax.swing.JFrame {
         jLabel5.setText("Estado:");
 
         jComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxEstadoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -379,15 +353,11 @@ public class ConsultaUsuarios extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBoxRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)))
                 .addComponent(jButtonGuardar)
                 .addContainerGap())
         );
@@ -408,24 +378,9 @@ public class ConsultaUsuarios extends javax.swing.JFrame {
         guardar();
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
-    private void jComboBoxRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRolActionPerformed
-
-    }//GEN-LAST:event_jComboBoxRolActionPerformed
-
     private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
         modificar();
     }//GEN-LAST:event_jButtonModificarActionPerformed
-
-    private void jTextfieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextfieldPasswordActionPerformed
-    }//GEN-LAST:event_jTextfieldPasswordActionPerformed
-
-    private void jComboBoxEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxEstadoActionPerformed
-
-    private void jTextfieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextfieldNombreActionPerformed
-
-    }//GEN-LAST:event_jTextfieldNombreActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

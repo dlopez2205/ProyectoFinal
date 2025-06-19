@@ -48,7 +48,6 @@ public class ConsultaCupon extends javax.swing.JFrame {
             tabla.setValueAt(c.tipo_descuento, i, 2);
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             tabla.setValueAt(formato.format(c.fecha_de_vencimiento), i, 3);
-            
         }                
     }
 
@@ -93,12 +92,6 @@ public class ConsultaCupon extends javax.swing.JFrame {
 
         jLabel1.setText("Codigo descuento:");
 
-        jTextFieldCodigoDescuento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCodigoDescuentoActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("Descuento:");
 
         jLabel3.setText("Tipo descuento:");
@@ -134,11 +127,6 @@ public class ConsultaCupon extends javax.swing.JFrame {
         });
 
         jComboBoxTipoDescuento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxTipoDescuento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxTipoDescuentoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -214,10 +202,6 @@ public class ConsultaCupon extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldCodigoDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoDescuentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCodigoDescuentoActionPerformed
-
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
         if( cupon != null ){
 
@@ -255,17 +239,13 @@ public class ConsultaCupon extends javax.swing.JFrame {
                 return;
             }
 
-            
-
             pintarTabla();
             JOptionPane.showMessageDialog(this, "Cupon modificado exitosamente");
             jTextFieldCodigoDescuento.setText("");
             jTextFieldDescuento.setText("");
             jComboBoxTipoDescuento.setSelectedIndex(-1);
-            jTextFieldFechaVencimiento.setText("");
-            
+            jTextFieldFechaVencimiento.setText("");   
         }
-
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
@@ -304,7 +284,8 @@ public class ConsultaCupon extends javax.swing.JFrame {
 
                 jComboBoxTipoDescuento.setSelectedIndex(1);
             }
-            jTextFieldFechaVencimiento.setText( cupon.fecha_de_vencimiento.toString());
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+            jTextFieldFechaVencimiento.setText( formato.format(cupon.fecha_de_vencimiento));
 
         }
     }//GEN-LAST:event_jButtonModificarActionPerformed
@@ -312,10 +293,6 @@ public class ConsultaCupon extends javax.swing.JFrame {
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
-
-    private void jComboBoxTipoDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoDescuentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxTipoDescuentoActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -60,12 +60,6 @@ public class LibroNuevo extends javax.swing.JFrame {
             }
         });
 
-        jTextfieldStock.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextfieldStockActionPerformed(evt);
-            }
-        });
-
         jButtonCrear.setText("Crear");
         jButtonCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,10 +147,6 @@ public class LibroNuevo extends javax.swing.JFrame {
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
             this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
-
-    private void jTextfieldStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextfieldStockActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextfieldStockActionPerformed
 
     private void jButtonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearActionPerformed
         Libro l = new Libro();

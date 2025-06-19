@@ -40,12 +40,6 @@ public class Login extends javax.swing.JFrame {
 
         jLabel1.setText("Usuario: ");
 
-        jTextfieldUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextfieldUsuarioActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("Password:");
 
         jButtonIngresar.setText("Ingresar");
@@ -145,10 +139,6 @@ public class Login extends javax.swing.JFrame {
         UsuarioNuevo n = new UsuarioNuevo();
         n.setVisible(true);
     }//GEN-LAST:event_jButtonCrearCuentaActionPerformed
-
-    private void jTextfieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextfieldUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextfieldUsuarioActionPerformed
 
   
 

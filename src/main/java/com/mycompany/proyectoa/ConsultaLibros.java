@@ -99,12 +99,6 @@ public class ConsultaLibros extends javax.swing.JFrame {
 
         jLabel4.setText("Precio:");
 
-        jTextFieldTitulo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldTituloActionPerformed(evt);
-            }
-        });
-
         jButtonModificar.setText("Modificar");
         jButtonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,12 +114,6 @@ public class ConsultaLibros extends javax.swing.JFrame {
         });
 
         jLabel5.setText("Stock:");
-
-        jTextFieldStock.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldStockActionPerformed(evt);
-            }
-        });
 
         jButtonGuardar.setText("Guardar");
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -259,10 +247,6 @@ public class ConsultaLibros extends javax.swing.JFrame {
        }        
     }//GEN-LAST:event_jButtonModificarActionPerformed
 
-    private void jTextFieldTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTituloActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTituloActionPerformed
-
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
        
         if( libro != null ){
@@ -317,10 +301,6 @@ public class ConsultaLibros extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButtonGuardarActionPerformed
-
-    private void jTextFieldStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStockActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldStockActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
