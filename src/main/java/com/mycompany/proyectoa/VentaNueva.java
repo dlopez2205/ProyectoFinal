@@ -69,6 +69,10 @@ public class VentaNueva extends javax.swing.JFrame
     {        
         Venta v = new Venta();
         Double Descuento = 0.0;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Cupon c = null;
+        String fechaVenta = "";
+        String fechaCupon = "";
         
         if( jTextFieldNit.getText().isEmpty() == false )
         {
@@ -99,8 +103,9 @@ public class VentaNueva extends javax.swing.JFrame
            JOptionPane.showMessageDialog(this, "Debe llenar Direccion" );
            return;
         }
+        
         v.empleado = this.usuariologeado;
-        v.fecha = Calendar.getInstance();
+        v.fecha = new Date();
         
         v.total = 0.0;
         v.totalsiniva = 0.0;
@@ -122,25 +127,22 @@ public class VentaNueva extends javax.swing.JFrame
             v.libroventa = ProyectoFinal.libroventa;        
         }
         
-        if(jComboBoxCuponesDescuento.getSelectedIndex() > -1 ) {
+        if(jComboBoxCuponesDescuento.getSelectedIndex() > -1 ) 
+        {
             JOptionPane.showMessageDialog(this, "Si hay descuento que calcular");
             
             for(int i = 0; i < ProyectoFinal.cupones.size(); i++) 
             {
-                Cupon c = ProyectoFinal.cupones.get(i);
+                c = ProyectoFinal.cupones.get(i);
                 String CodigoCupon = jComboBoxCuponesDescuento.getItemAt(jComboBoxCuponesDescuento.getSelectedIndex());
 
                 if( c.codigo_descuento.equalsIgnoreCase(CodigoCupon) )
-                {
-                    String fecha = c.fecha_de_vencimiento.toString();
-                    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-                    try {
-                        c.fecha_de_vencimiento = formato.parse(fecha);
-                    } catch (ParseException ex) {
-                        System.out.println("Error en la fecha de vencimiento");
-                        //Logger.getLogger(VentaNueva.class.getName()).log(Level.SEVERE, null, ex);
+                {                                        
+                    if(v.fecha.after(c.fecha_de_vencimiento))
+                    {
+                        JOptionPane.showMessageDialog(this, "Fecha de cupon vencido!!!");
+                        return;
                     }
-                                        
                     if( c.tipo_descuento.equalsIgnoreCase("Porcentaje") )
                     {
                         Descuento = v.total * ( c.descuento / 100.0 );
@@ -155,7 +157,7 @@ public class VentaNueva extends javax.swing.JFrame
                     v.totalsiniva = v.total / 1.12;
 
                     JOptionPane.showMessageDialog(this, "Su descuento fue de: " + Descuento + " Total de su compra: " + v.total);
-
+                    break;
                 }
             }            
         }
@@ -164,8 +166,7 @@ public class VentaNueva extends javax.swing.JFrame
         ProyectoFinal.ventas.add(v);
         JOptionPane.showMessageDialog(this, "Venta agregada..." );
         limpiarForma();
-        llenarComboCupones();
-                
+        llenarComboCupones();                
     }
     
     private void limpiarForma() { 
@@ -211,18 +212,14 @@ public class VentaNueva extends javax.swing.JFrame
                 }else {
                     JOptionPane.showMessageDialog(this, "La cantidad minima a pedir es: "+ l.cantidad_stock);
                     return;
-                    
                 }     
             }
             lv.fecha_venta = Calendar.getInstance();
-
         }
         
         ProyectoFinal.libroventa.add(lv);
         pintarTablaLibroVenta();
         JOptionPane.showMessageDialog(this, "Libro agregado..." );
-                        
-
     }
     
     private void pintarTablaLibroVenta() {

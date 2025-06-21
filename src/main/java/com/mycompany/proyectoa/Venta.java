@@ -6,6 +6,7 @@ package com.mycompany.proyectoa;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -20,6 +21,6 @@ public class Venta {
     public Double total;
     public Double totalsiniva;
     public Double descuento;
-    public Calendar fecha;
+    public Date fecha;
     public ArrayList<LibroVenta>libroventa = new ArrayList<>();
 }
